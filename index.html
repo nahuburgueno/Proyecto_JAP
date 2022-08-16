@@ -39,11 +39,9 @@
           <input  class="form-control" type="password"/>
         </section>   
        
-       <!--  <a class="boton" href="principal.html">Ingresar</a> -->
-        
-        <button class="boton" >INGRESAR</button>
+        <button class="boton" >Ingresar</button>
        
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <div id="my-signin2"></div>
         
       </div>
       <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
@@ -52,8 +50,7 @@
       </div>
       
     </form>
-    <div class="letras_login"><p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
-      2022</p></div>
+
 
       
       <script src="js/bootstrap.bundle.min.js"></script>
@@ -67,6 +64,7 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
   </body>
 </html>
