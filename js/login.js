@@ -1,3 +1,4 @@
+/* Alerta de errar al no llenar los campos */
 function showAlertError() {
   document.getElementById("alert-danger").classList.add("show");
 }
@@ -28,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+/* Iniciar Sesion con Google */
 function onSuccess(googleUser) {
 
     location.href = "principal.html";
@@ -44,8 +47,6 @@ function renderButton() {
     'theme': 'dark',
     'onsuccess': onSuccess,
     'onfailure': onFailure,
-  
-    
   });
 }
 
