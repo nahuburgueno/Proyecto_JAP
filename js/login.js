@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         vacio = true;
       }
     });
-    let nameUser= document.getElementById("email").value.trim(); /* Variable que agarra el ID del input y nos da el valor */
+    let nameUser = document.getElementById("email").value.trim(); /* Variable que agarra el ID del input y nos da el valor */
     if (vacio) {
       showAlertError();
     } else {
@@ -34,26 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* Iniciar Sesion con Google */
-function onSuccess(googleUser) {
-
-    location.href = "principal.html";
-}
-function onFailure(error) {
-  showAlertError();
-}
-function renderButton() {
-  gapi.signin2.render('my-signin2', {
-    'scope': 'profile email',
-    'width': 210,
-    'height': 50,
-    'longtitle': true,
-    'theme': 'dark',
-    'onsuccess': onSuccess,
-    'onfailure': onFailure,
-  });
-}
-
-
-
-
-
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      location.href = "principal.html";
+  }
+  
