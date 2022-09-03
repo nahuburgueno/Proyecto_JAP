@@ -30,7 +30,12 @@
             <a class="nav-link active" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <a  class="nav-link active" href="index.html" onclick="signOut();">Sign out</a>
+            <div class="dropdown">
+              <input class="btn btn-secondary dropdown-toggle" type="button" id="email" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: white; color: black;" >
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="index.html" onclick="signOut();">Cerrar sesión</a></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -228,6 +233,7 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/sell.js"></script>
+  <script src="js/principal.js"></script>
 </body>
 
 </html>

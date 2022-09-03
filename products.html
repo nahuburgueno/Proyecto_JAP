@@ -32,7 +32,12 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <a  class="nav-link active" href="index.html" onclick="signOut();">Sign out</a>
+            <div class="dropdown">
+              <input class="btn btn-secondary dropdown-toggle" type="button" id="email" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: white; color: black;" >
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="index.html" onclick="signOut();">Cerrar sesión</a></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -48,9 +53,9 @@
         <div class="col text-end">
           <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
             <input type="radio" class="btn-check" name="options" id="sortAsc">
-            <label class="btn btn-light" for="sortAsc">Precio ascendente</label>
+            <label class="btn btn-light" for="sortAsc"><img src="/img/Precio ascendente.png"></label>
             <input type="radio" class="btn-check" name="options" id="sortDesc">
-            <label class="btn btn-light" for="sortDesc">Precio descendente</label>
+            <label class="btn btn-light" for="sortDesc"><img src="/img/Precio descendente.png"></label>
             <input type="radio" class="btn-check" name="options" id="sortByCount" checked>
             <label class="btn btn-light" for="sortByCount"><i class="fas fa-sort-amount-down mr-1"></i></label>
           </div>
@@ -102,6 +107,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
+  <script src="js/principal.js"></script>
   
 </body>
 

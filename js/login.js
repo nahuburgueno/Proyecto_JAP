@@ -1,6 +1,7 @@
 /* Alerta de errar al no llenar los campos */
 function showAlertError() {
   document.getElementById("alert-danger").classList.add("show");
+
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,9 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
         vacio = true;
       }
     });
+    let nameUser= document.getElementById("email").value.trim(); /* Variable que agarra el ID del input y nos da el valor */
     if (vacio) {
       showAlertError();
     } else {
+      localStorage.setItem('usuario',nameUser); /* Al iniciar sesion, esto guarda en el local Storage nuestro usuario que pongamos */
       location.href = "principal.html";
     }
   });

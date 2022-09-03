@@ -12,7 +12,6 @@
   <link href="css/styles.css" rel="stylesheet">
   <meta name="google-signin-client_id" content="680344540172-6ior7kepo4uub9ka1eh2r2jb656lgr60.apps.googleusercontent.com">
 </head>
-
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
@@ -32,7 +31,12 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
-            <a  class="nav-link active" href="index.html" onclick="signOut();">Sign out</a>
+            <div class="dropdown">
+              <input class="btn btn-secondary dropdown-toggle" type="button" id="email" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: white; color: black;" >
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="index.html" onclick="signOut();">Cerrar sesión</a></li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -104,7 +108,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/categories.js"></script>
-  
+  <script src="js/principal.js"></script>
 </body>
 
 </html>
