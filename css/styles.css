@@ -200,3 +200,29 @@ a.custom-card:hover {
   color: blueviolet !important;
   border-bottom: 1px solid blueviolet;
 } */
+.rating a {
+  float: right;
+  color: #aaa;
+  text-decoration: none;
+  transition: color .4s;
+  font-size: 25px;
+}
+
+.rating {
+  position: absolute;
+}
+.rating2 {
+  direction: rtl;
+}
+
+.rating2 a {
+  float: none
+}
+
+.rating a:hover,
+.rating a:hover~a,
+.rating a:focus,
+.rating a:focus~a {
+  color: orange;
+  cursor: pointer;
+}

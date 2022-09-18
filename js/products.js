@@ -35,10 +35,16 @@ function sortCategories(criteria, array){
     return result;
 }
 
+function guardarIdProducto(id){
+    localStorage.setItem('prodID', id)
+    console.log(localStorage.getItem("prodID",id))
+    location.href = "product-info.html"
+}
+
+
 //función que recibe un array con los datos, y los muestra en pantalla a través el uso del DOM
 function showCategoriesList() {
   let htmlContentToAppend = "";
-
   let htmlContentToAppend2 = "";
   htmlContentToAppend2 += `
   <p>Veras aqui todos los productos de la categoria: ` + categoryName + `</p>    `
@@ -52,7 +58,7 @@ function showCategoriesList() {
     
               htmlContentToAppend +=
       `
-        <div class="list-group-item list-group-item-action">
+        <div onclick="guardarIdProducto(`+category.id+`)" class="list-group-item list-group-item-action">
         
         <div class="row">
 
@@ -100,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           currentCategoriesArray = resultObj.data.products;
           categoryName = resultObj.data.catName;
           showCategoriesList()
-          //sortAndShowCategories(ORDER_ASC_BY_NAME, resultObj.data);
+        
       }
   });
 
