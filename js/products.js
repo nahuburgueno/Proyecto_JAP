@@ -34,7 +34,7 @@ function sortCategories(criteria, array){
 
     return result;
 }
-
+// Funcion para redirigirnos a su id
 function guardarIdProducto(id){
     localStorage.setItem('prodID', id)
     console.log(localStorage.getItem("prodID",id))
@@ -56,14 +56,11 @@ function showCategoriesList() {
     if (((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
     
-              htmlContentToAppend +=
-      `
-        <div onclick="guardarIdProducto(`+category.id+`)" class="list-group-item list-group-item-action">
-        
+              htmlContentToAppend +=`
+        <div onclick="guardarIdProducto(`+category.id+`)" class="list-group-item list-group-item-action cursor-active">
         <div class="row">
-
                 <div class="col-3">
-                    <img src=  "` + category.image + `" alt="product image" class="img-thumbnail">
+                    <img src= "` + category.image + `" alt="product image" class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
@@ -71,12 +68,12 @@ function showCategoriesList() {
                         <h4>` +category.name + " - " + category.currency + " " + category.cost + `</h4> 
                         <p> ` + category.description +`</p> 
                         </div>
-                        <small class="text-muted">` + category.soldCount +  ` vendidos</small> 
+                        <small class="text-muted">`+ category.soldCount+` vendidos</small> 
                     </div>
                 </div>
             </div>
         </div>
-        `;
+        `
       }
     document.getElementById("listado_productos").innerHTML = htmlContentToAppend;
   }
