@@ -36,11 +36,101 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+  <center><h1>Carrito de compras</h1></center>
+    <!-- <div style="margin-left: 30%;">
+    <h3>Articulos a comprar</h3>
+    <p ><b class=" mx-3">Nombre </b>&emsp; <b class=" mx-3">Costo </b>&emsp;<b>Cantidad </b>&emsp;<b>Subtotal </b></p>
+    <hr style="background-color: black; margin-right: 60%;">
+   <div class="d-flex">
+     <p id="nombreProduct" class=" mx-3">gggggg</p>
+    <input type="number" class=" mx-3 form-control" id="cantProduct" value="1" style="width: 70px;">
+    <p id="costProduct" class=" mx-3">adsadsa</p>
+    <p id="totalProduct">222</p>
+  </div>
+  </div> --> 
+  <h4 style="margin-left: 30%;">Articulos a comprar</h4>
+  <br>
+  <div class="container" style="margin-left: 30%;">
+    <div class="row">
+      <div class="col-md-1">
+        <b></b> 
+        </div>
+      <div class="col-md-1">
+      <b> Nombre</b> 
+      </div>
+      <div class="col-md-1 ">
+       <b> Costo</b>
+      </div>
+      <div class="col-md-1">
+       <b> Cantidad</b>
+      </div>
+      <div class="col-md-1 ">
+      <b>Subtotal</b>  
       </div>
     </div>
+    
+      <hr width="550px" style="background-color: black; opacity: 0.75; height: 1px;">
+      <div class="row">
+  <div class="col-md-1">
+    <img src="img/prod50924_1.jpg" alt="" id="img" style="width: 60px; height: 50px;">
+    </div>
+    <div class="col-md-1" style="width: 120px;">
+<p  id="nombre">Peugeot 208</p>
+    </div>
+    <div class="col-md-1">
+<p  id="costProduct">USD 15200</p>
+    </div>
+    <div class="col-md-1 ">
+      <input type="number" class=" mx-3 form-control" id="cantProduct" value="1" style="width: 70px;">
+      </div>
+    <div class="col-md-1 ">
+    <b  id="subtotal">USD 15200</b>  
+    </div>
+    </div>
+  </div>
+  <hr style="margin-left: 30%; margin-right:405px;"> 
+
+
+<div class="container" style="margin-left: 30%;">
+  
+  <h4>Tipo de envio</h4>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+<label class="form-check-label" for="flexRadioDefault1">
+Premium 2 a 5 dias(15%)
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+Express 5 a 8 dias(7%)
+  </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
+    <label class="form-check-label" for="flexRadioDefault3">
+Standar 12 a 15 dias(5%)
+    </label>
+</div>
+
+<br>
+<h4>Direccion de envio:</h4>
+<div class="row">
+    <div class="col-md-3">
+Calle
+<input type="text" class="form-control">
+    </div>
+    <div class="col-md-3">
+      Numero
+      <input type="text" class="form-control">
+          </div>
+          <div class="col-md-3">
+            Esquina
+            <input type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+          </div>
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -63,6 +153,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </body>
 
 </html>
