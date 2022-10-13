@@ -7,24 +7,108 @@ html {
 h1, label{
     color: white;
 }
+@media (min-width:1000px) {
+    .sombra{
+        -webkit-box-shadow: 0px 5px 20px 0px rgba(112,112,112,1);
+    -moz-box-shadow: 0px 5px 20px 0px rgba(112,112,112,1);
+    box-shadow: 0px 5px 20px 0px rgba(112,112,112,1);
+    padding: 40px;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, .5);
+    }
+    .fondo{
+    background-image: url(../img/login44.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    }
+    .contorno{
+        width: 25rem;
+        height: 30rem;
+        margin-left: 75rem;
+        margin-top: 8rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-weight: bold;
+        justify-content: center;
+    }
+    .boton{
+        padding: 12px 20px;
+        margin-top: 27px;
+        margin-bottom: 20px;
+        font-size: 20px;
+        width: 150px;
+        text-align: center;
+        border-radius: 10px;
+        text-decoration: none;
+        color: white;
+        background-color: rgba(0, 0, 0, .6);
+    }
+    .boton:hover{
+        background-color: rgba(0, 0, 0, .4);
+        color: white;
+    }
+    .boton:active{
+        transform: translateY(0.8px);
+        background-color: rgba(0, 0, 0, .8);
+    
+    }
+    .login, .email, .password {
+        padding: 7px;
+    }
+    .email{
+        margin-left: 3px;
+    }
+    .titulo-email{
+        margin-right: 40px;
+    }
+    .login h1{
+        font-size: 30px;
+    }
+    .icon-titulo{
+        color: white;
+        display: flex;
+    }
+    .icon-titulo ion-icon, p{
+        font-size: 40px;
+        margin: auto 0;
+    }
+    .icon-titulo  p{
+     padding-left: 10px;
+    }
+    
+    .g-signin2{
+        margin-top: 20px;
+    }
+    .letras_login p {
+        color: black;
+        font-size: 1.2rem;
+        font-weight: bold;
+        position: absolute;
+        bottom: 10px; 
+    }
+    
+    
+    
+}
+
+@media (max-width:1000px) {
+    .fondo{
+       background-color: aquamarine;
+        background-size: 100%;
+     
+        }
 .sombra{
     -webkit-box-shadow: 0px 5px 20px 0px rgba(112,112,112,1);
 -moz-box-shadow: 0px 5px 20px 0px rgba(112,112,112,1);
 box-shadow: 0px 5px 20px 0px rgba(112,112,112,1);
-padding: 40px;
 border-radius: 30px;
 background-color: rgba(0, 0, 0, .5);
-}
-.fondo{
-background-image: url(../img/login44.jpg);
-background-size: 100%;
-background-repeat: no-repeat;
 }
 .contorno{
     width: 25rem;
     height: 30rem;
-    margin-left: 75rem;
-    margin-top: 8rem;
+   margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,3 +172,5 @@ background-repeat: no-repeat;
 }
 
 
+
+}
