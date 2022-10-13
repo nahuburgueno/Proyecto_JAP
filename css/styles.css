@@ -226,3 +226,21 @@ a.custom-card:hover {
   color: orange;
   cursor: pointer;
 }
+
+/* CARRITO DE COMPRAS */
+
+.formulario__submit {
+  background-color: gray;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.7rem;
+  padding: 1rem;
+  transition: font-size .3s ease;
+ margin: 20px 850px;
+  }
+  
+  .formulario__submit:hover  {
+  font-size: 2.4rem;
+    cursor: pointer;
+    background-color: blue;
+  }

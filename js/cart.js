@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CART_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
            carritoInfo = resultObj.data;
-          
+           mostrarInfoCart (carritoInfo);
          
         }
     });
@@ -28,11 +28,22 @@ cantidad.addEventListener("click", function(e){
                 allowEnterKey: true,
                 showConfirmButton: false
             });
-            /* alert("Ingrese una cantidad mayor a 0"); */
+          
         }
        
 
     });
     
     
-   
+   function mostrarInfoCart (carritoInfo){
+    let precio = document.getElementById("costProduct");
+    let imagen = document.getElementById("img");
+    let name = document.getElementById("nombre");
+    let total = document.getElementById("subTotal");
+    let currency = carritoInfo.articles[0].currency;
+    let unitCost= carritoInfo.articles[0].unitCost;
+imagen.src = carritoInfo.articles[0].image;
+name.innerText = carritoInfo.articles[0].name;
+precio.innerText = currency + " " + unitCost;
+total.innerHTML= currency + " " + unitCost;
+   }

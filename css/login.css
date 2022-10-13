@@ -21,10 +21,9 @@ background-size: 100%;
 background-repeat: no-repeat;
 }
 .contorno{
-    
     width: 25rem;
     height: 30rem;
-    margin-left: 55rem;
+    margin-left: 75rem;
     margin-top: 8rem;
     display: flex;
     flex-direction: column;

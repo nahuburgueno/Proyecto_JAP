@@ -30,6 +30,15 @@
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
           <li class="nav-item">
+            <div class="dropdown">
+              <label class="nav-link nav-bar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="nombreUsuario"></label>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="index.html" onclick="signOut();">Cerrar sesión</a></li>
+                
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
@@ -72,26 +81,26 @@
       <hr width="550px" style="background-color: black; opacity: 0.75; height: 1px;">
       <div class="row">
   <div class="col-md-1">
-    <img src="img/prod50924_1.jpg" alt="" id="img" style="width: 60px; height: 50px;">
+    <img src="" alt="" id="img" style="width: 60px; height: 50px;">
     </div>
     <div class="col-md-1" style="width: 120px;">
-<p  id="nombre">Peugeot 208</p>
+<p  id="nombre"></p>
     </div>
     <div class="col-md-1">
-<p  id="costProduct">USD 15200</p>
+<p  id="costProduct"></p>
     </div>
     <div class="col-md-1 ">
-      <input type="number" class=" mx-3 form-control" id="cantProduct" value="1" style="width: 70px;">
+      <input type="number" class=" mx-3 form-control" id="cantProduct" value="1" min="0" style="width: 70px;">
       </div>
     <div class="col-md-1 ">
-    <b  id="subtotal">USD 15200</b>  
+    <b  id="subTotal"></b>  
     </div>
     </div>
   </div>
-  <hr style="margin-left: 30%; margin-right:405px;"> 
+  
 
 
-<div class="container" style="margin-left: 30%;">
+<div class="container" style="margin-left: 30%; padding: 10px;">
   
   <h4>Tipo de envio</h4>
 <div class="form-check">
@@ -131,7 +140,10 @@ Calle
               </div>
             </div>
           </div>
+          <input type="submit" class="formulario__submit" value="Agregar al carrito">
   </main>
+  
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -154,6 +166,7 @@ Calle
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-</body>
+  <script src="js/principal.js"></script>
+ 
 
 </html>
