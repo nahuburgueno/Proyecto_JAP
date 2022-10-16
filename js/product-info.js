@@ -61,6 +61,7 @@ for (let i = 0; i < productInfo.images.length; i++) {
    imgs += `
    <img class="img" src="`+productInfo.images[i] +`"width="240px" height="190px" 
    Style="padding: 10px; border-radius:20px;">
+   
    `
    document.getElementById("imagenesIlus").innerHTML = imgs;
     

@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok"){
            carritoInfo = resultObj.data;
            mostrarInfoCart (carritoInfo);
-         
         }
     });
     });
@@ -12,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 cantidad.addEventListener("click", function(e){
         let valor = carritoInfo.articles[0].unitCost;
         let currency = carritoInfo.articles[0].currency;
-        let coste = document.getElementById("subtotal");
+        let coste = document.getElementById("subTotal");
         let cantidad = document.getElementById("cantProduct").value;
         if(cantidad > 0 ){
             coste.innerHTML = currency + " " + cantidad * valor;
@@ -28,13 +27,8 @@ cantidad.addEventListener("click", function(e){
                 allowEnterKey: true,
                 showConfirmButton: false
             });
-          
         }
-       
-
     });
-    
-    
    function mostrarInfoCart (carritoInfo){
     let precio = document.getElementById("costProduct");
     let imagen = document.getElementById("img");
