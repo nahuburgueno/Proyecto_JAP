@@ -57,16 +57,23 @@ cost.innerHTML = productInfo.currency+" "+productInfo.cost;
 count.innerHTML = productInfo.soldCount;
 categoria.innerHTML = products.catName;
 
+// Imagenes ilustrativas y carousel.
 for (let i = 0; i < productInfo.images.length; i++) {
-   imgs += `
-   <img class="img" src="`+productInfo.images[i] +`"width="240px" height="190px" 
-   Style="padding: 10px; border-radius:20px;">
-   
+    if(i == 0){
+        imgs += `
+        <div class="carousel-item active">
+        <img src="`+productInfo.images[i]+`" class="d-block w-100" alt="...">
+      </div>
+       `
+    }else{
+        imgs += `
+    <div class="carousel-item">
+    <img src="`+productInfo.images[i]+`" class="d-block w-100" alt="...">
+  </div>
    `
-   document.getElementById("imagenesIlus").innerHTML = imgs;
-    
+    }
 };
-
+document.getElementById("carouselImg").innerHTML = imgs;
 for (let comment in comentariosProd){
     comments +=`<div class="card">
     <div class="card-body">
@@ -300,4 +307,18 @@ document.getElementById('5star').addEventListener('click', () => {
     estrellas = 5;
 });
 
+
+
+//Desafiate 5 agregar objetos a nuestro carrito
+
+let botonComprar = document.getElementById("botonComprar");
+
+botonComprar.addEventListener("click", function(e){
+
+ localStorage.setItem("nuevoObj", JSON.stringify(productInfo));
+
+
+    window.location = "cart.html"
+
+});
 

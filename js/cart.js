@@ -3,33 +3,21 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok"){
            carritoInfo = resultObj.data;
            mostrarInfoCart (carritoInfo);
-        }
-    });
-    });
-   
-    let cantidad = document.getElementById("cantProduct")
-cantidad.addEventListener("click", function(e){
+           agregarNewObj();
+         cantidad = document.getElementById("cantProduct")
+        cantidad.addEventListener("click", function(e){
         let valor = carritoInfo.articles[0].unitCost;
         let currency = carritoInfo.articles[0].currency;
         let coste = document.getElementById("subTotal");
-        let cantidad = document.getElementById("cantProduct").value;
-        if(cantidad > 0 ){
-            coste.innerHTML = currency + " " + cantidad * valor;
-        }else{
-            Swal.fire({
-                title: "Informacion incorrecta",
-                text: "Debe ingresar una cantidad mayor a 0",
-                icon: "error",
-                backdrop: true,
-                timer: 4000,
-                allowOutsideClick: true,
-                allowEscapeKey: true,
-                allowEnterKey: true,
-                showConfirmButton: false
-            });
+        coste.innerHTML = "<b>" + currency + " " + cantidad.value * valor + "</b>";
+   
+        });
         }
+
     });
-   function mostrarInfoCart (carritoInfo){
+    });
+   
+    function mostrarInfoCart (carritoInfo){
     let precio = document.getElementById("costProduct");
     let imagen = document.getElementById("img");
     let name = document.getElementById("nombre");
@@ -39,5 +27,46 @@ cantidad.addEventListener("click", function(e){
 imagen.src = carritoInfo.articles[0].image;
 name.innerText = carritoInfo.articles[0].name;
 precio.innerText = currency + " " + unitCost;
-total.innerHTML= currency + " " + unitCost;
+total.innerHTML = "<b>"+currency+" "+unitCost+"</b>";
    }
+
+// Agregar nuevo objeto al carrito
+
+function agregarNewObj(){
+    let productCart = "";
+    let productInfo = JSON.parse(localStorage.getItem("nuevoObj"));
+    productCart += `
+    <div class="row">
+  
+    <img src="`+productInfo.images[0]+`" style="width: 90px; height: 40px;">
+    
+    <div class="col-md-1" style="width: 120px;" >
+    `+productInfo.name+`
+    </div>
+    
+    <div class="col-md-1">
+    `+productInfo.currency+ " " +productInfo.cost+ `
+    </div>
+    
+    <div class="col-md-1">
+      
+      <input onclick="calcularValor()" type="number" class="form-control"  id="btnCantidad" value="1" min="1" style="width: 60px; height: 40px;">
+      
+    </div>
+    
+    <div class="col-md-1" id="precioTotal">
+  <b>  ` +productInfo.currency+ " " +productInfo.cost+ `</b>
+    </div>
+  
+</div>
+    `
+    document.getElementById("articulosCarrito").innerHTML += productCart;
+}
+
+
+function calcularValor() {
+    let producto = JSON.parse(localStorage.getItem("nuevoObj"));
+    let cantidadArticulo = document.getElementById("btnCantidad").value;
+    let precioTotal = document.getElementById("precioTotal");
+    precioTotal.innerHTML = `<b>`+ producto.currency+" "+ producto.cost * cantidadArticulo+ `</b>`
+}

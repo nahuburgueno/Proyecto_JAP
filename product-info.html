@@ -49,7 +49,14 @@
   <main>
     <div class="container" id="contenedorProductos">
       <br>
-      <h1 id="productName"></h1>
+      <div class="container d-flex">
+        <div style="width: 80%;">
+          <h1 id="productName"></h1>
+        </div>
+      <div style="width: 20%;">
+        <button type="button" id="botonComprar" class="btn btn-success" >Comprar</button>
+      </div>
+    </div>
       <hr>
       <h5><b>Precio:</b></h5>
       <p id="productCost"></p>
@@ -61,6 +68,21 @@
       <p id="productCount"></p>
       <h5><b>Imagenes Ilustrativas:</b></h5>
       <p id="imagenesIlus"></p>
+      
+      <div id="carouselDeImgIlus" class="carousel slide" data-bs-ride="carousel"  style="width: 700px;">
+        <div class="carousel-inner" id="carouselImg">
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselDeImgIlus" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselDeImgIlus" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
       <br><br>
       <h4>Comentarios:</h4>
  <div id="seccionComentarios"></div>
