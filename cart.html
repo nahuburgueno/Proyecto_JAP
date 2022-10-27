@@ -103,44 +103,140 @@
   
   <h4 style="margin-top: 60px;">Tipo de envio:</h4>
 <div class="form-check" style="margin-top: 20px;">
-<input  class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+<input  class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="15">
 <label  class="form-check-label" for="flexRadioDefault1" >
 Premium 2 a 5 dias (15%)
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked value="7"> 
   <label class="form-check-label" for="flexRadioDefault2">
 Express 5 a 8 dias (7%)
   </label>
 </div>
 <div class="form-check">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked value="5">
     <label class="form-check-label" for="flexRadioDefault3">
-Standar 12 a 15 dias (5%)
+Standard 12 a 15 dias (5%)
     </label>
 </div>
 
 <br>
+
+<!-- Empieza el FORM -->
+<form action="#" class="needs-validation"  novalidate>
 <h4>Direccion de envio:</h4>
+
 <div class="row">
     <div class="col-md-3">
 Calle:
-<input type="text" class="form-control">
+<input type="text" class="form-control" required>
+<div  class="invalid-feedback">Ingrese una calle</div>
     </div>
-    <div class="col-md-3">
-      Numero:
-      <input type="number" class="form-control">
+
+          <div class="col-md-3">
+                Numero:
+                <input type="number" class="form-control" required>
+          <div  class="invalid-feedback">Ingrese un numero</div>
           </div>
          
           <div class="col-md-3">
-            Esquina:
-            <input type="text" class="form-control">
+                Esquina:
+                  <input type="text" class="form-control" required>
+          <div  class="invalid-feedback">Ingrese una Esquina</div>
+                </div>
+
+                <hr  style="width: 800px;">
+          <h4 class="mb-3">Costos</h4>
+          <ul class="list-group mb-3 " style="width: 600px;">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Precio</h6>
+                <small class="text-muted">Unitario del producto</small>
+              </div>
+              <span class="text-muted" id="costoProdCarr"></span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Porcentaje</h6>
+                <small class="text-muted">Según el tipo de publicación</small>
+              </div>
+              <span class="text-muted" id="costeEnvioCarr"></span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total ($)</span>
+              <strong id="totalCosteCarr"></strong>
+            </li>
+          </ul>
+         
+          <hr  style="width: 800px;">
+         
+          <!-- MODAL -->
+        
+          <h4>Forma de pago</h4>
+          <h6 id="metodoDePago"></h6><button class="btn btn-link ps-0 d-flex" data-bs-toggle="modal"data-bs-target="#modalTerminos" style="width: 600px;">Seleccionar</button>
+  
+  
+          
+          <button class="btn btn-primary btn-lg" type="submit" onclick="formaDePago()" style="max-width:200px; margin-right:50%; padding: 12px; margin-top:60px;">Finalizar compra</button>
+              </div>
+              <div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5">Forma de pago</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="formaDePago"></button>
+                    </div>
+                    <div class="modal-body">
+                      <input class="form-check-input" type="radio" id="chBoxTarjeta" >Tarjeta de credito
+                      <hr>
+                      
+                      <div class="row"> 
+                      <div class="col-md-3 p-2" >
+                      Numero de Tarjeta
+                      <input type="text" class="form-control" id="NumTarjeta">
+                      </div>
+                      
+                      <div class="col-md-3 p-2" >
+                      Codigo de seg.
+                      <input type="text" class="form-control" maxlength="3" id="CodSeguridad">
+                    </div>
+                  </div>
+                 
+                  <div class="row">
+                     <div class="col-md-5 p-2">
+                    
+                      Vencimiento (MM/AA)
+                      <input type="text" class="form-control" id="VenTarjeta">
+                    </div>
+                  </div>
+                  <hr>
+
+
+
+                      <input class="form-check-input" type="radio" id="chBoxTransferencia">  Transferencia bancaria
+                    
+                      <div class="row">
+                        <div class="col-md-5 p-2">
+                       
+                        Numero de cuenta
+                         <input type="text" class="form-control" id="NumCuenta">
+                       </div>
+                      </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                      <div class="form-check">
+                        <button class="btn btn-primary btn-lg"  data-bs-dismiss="modal"> Cerrar</button>
+                        
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <input type="submit" class="form-control" style="max-width:200px; margin-left:50%; padding: 12px; margin-top:60px;" value="Finalizar compra">
+        </form>
   </main>
 
   <footer class="text-muted">
@@ -153,6 +249,8 @@ Calle:
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+  
+  
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -161,11 +259,50 @@ Calle:
       <div></div>
     </div>
   </div>
+  
+
+
+                              <!-- ALERT DANGER -->
+
+<div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
+  <p>No se ha podido realizar la compra revise los campos</p>
+  <button type="button" class="btn-close" data-bs-dismiss=" alert"aria-label="Close" ></button>
+    
+</div>
+  
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="js/principal.js"></script>
+  <script type="text/javascript"src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+          showAlertError();
+        }else{
+          showAlertSuccess();
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
  
+</script>
 
 </html>

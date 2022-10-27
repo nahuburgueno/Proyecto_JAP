@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function(e){
            carritoInfo = resultObj.data;
            mostrarInfoCart (carritoInfo);
            agregarNewObj();
+           precioCarrito();
          cantidad = document.getElementById("cantProduct")
         cantidad.addEventListener("click", function(e){
         let valor = carritoInfo.articles[0].unitCost;
@@ -62,11 +63,143 @@ function agregarNewObj(){
     `
     document.getElementById("articulosCarrito").innerHTML += productCart;
 }
-
-
 function calcularValor() {
-    let producto = JSON.parse(localStorage.getItem("nuevoObj"));
-    let cantidadArticulo = document.getElementById("btnCantidad").value;
-    let precioTotal = document.getElementById("precioTotal");
-    precioTotal.innerHTML = `<b>`+ producto.currency+" "+ producto.cost * cantidadArticulo+ `</b>`
+  let producto = JSON.parse(localStorage.getItem("nuevoObj"));
+  let cantidadArticulo = document.getElementById("btnCantidad").value;
+  let precioTotal = document.getElementById("precioTotal");
+  precioTotal.innerHTML = `<b>`+ producto.currency+" "+ producto.cost * cantidadArticulo+ `</b>`
 }
+
+/* Alerta */
+
+function showAlertSuccess() {
+
+  Swal.fire({
+    title: "Informacion incorrecta",
+    text: "Compra completada con exito.",
+    icon: "success",
+    backdrop: true,
+    timer: 4000,
+    allowOutsideClick: true,
+    allowEscapeKey: true,
+    allowEnterKey: true,
+    showConfirmButton: false
+});
+}
+
+function showAlertError() {
+document.getElementById("alert-danger").classList.add("show");
+esconderAlert()
+}
+
+function esconderAlert(){
+
+$('#alert-danger').delay(2500).hide(300);
+
+
+}
+
+
+function carritoCalculos() {
+  calcularValor()
+  precioCarrito()
+
+}
+
+function precioCarrito(){
+
+let producto = JSON.parse(localStorage.getItem("nuevoObj"));
+let inputAutoPreCargado = document.getElementById("cantProduct").value
+let premium = document.getElementById("flexRadioDefault1");
+let express = document.getElementById("flexRadioDefault2");
+let standar = document.getElementById("flexRadioDefault3");
+let cantidadProducto = document.getElementById("btnCantidad").value
+let precioProducto = producto.cost * cantidadProducto
+
+if(producto.currency === "UYU"){
+ let productoEnDolares = producto.cost /= 42
+ precioProducto = Math.trunc(productoEnDolares * cantidadProducto)
+console.log(precioProducto)
+}
+let precioAutoPreCargado = carritoInfo.articles[0].unitCost * inputAutoPreCargado
+let subtotalCarrito = document.getElementById("costoProdCarr");
+let costeEnvioCarr = document.getElementById("costeEnvioCarr");
+  let totalCarrito = document.getElementById("totalCosteCarr");
+precio = precioAutoPreCargado + precioProducto;
+
+
+if (premium.checked){
+  envio = Math.trunc(precio * 0.15)
+  costeEnvioCarr.innerHTML = "USD " + envio
+  total = precio + envio
+  totalCarrito.innerHTML = "USD " + total;
+};
+premium.addEventListener("click", function(e){
+  envio = Math.trunc(precio * 0.15)
+  costeEnvioCarr.innerHTML = "USD " + envio
+  total = precio + envio
+  totalCarrito.innerHTML = "USD " + total;
+});
+
+express.addEventListener("click", function(e){
+  envio = Math.trunc(precio * 0.07)
+  costeEnvioCarr.innerHTML = "USD " + envio
+  total = precio + envio
+  totalCarrito.innerHTML = "USD " + total;
+});
+standar.addEventListener("click", function(e){
+  envio = Math.trunc(precio * 0.05)
+  costeEnvioCarr.innerHTML = "USD " + envio
+  total = precio + envio
+  totalCarrito.innerHTML = "USD " + total;
+});
+
+let subtotalCarritoMostrar = "USD " + precio;
+
+subtotalCarrito.innerHTML = subtotalCarritoMostrar;
+
+}
+
+
+
+let checkboxTarjeta = document.getElementById("chBoxTarjeta");
+let checkboxTransferencia = document.getElementById("chBoxTransferencia");
+ 
+function formaDePago() { 
+  let divError = document.getElementById("textoError")
+  if (checkboxTransferencia.checked || checkboxTarjeta.checked){
+    divError.classList.add("d-none")
+  }else{
+    divError.classList.remove("d-none")
+    divError.classList.add("text-danger")
+  }
+
+}
+  checkboxTransferencia.addEventListener("click", function(e){
+checkboxTarjeta.cheked = false
+    document.getElementById("NumTarjeta").readOnly = true;
+    document.getElementById("CodSeguridad").readOnly = true;
+    document.getElementById("VenTarjeta").readOnly = true;
+    document.getElementById("NumCuenta").readOnly = false;
+
+    document.getElementById("formaDePago").innerText = "Transferencia Bancaria";
+    formaDePago()
+  
+  })
+
+
+checkboxTarjeta.addEventListener("click", function(e){
+  checkboxTransferencia.cheked = false
+  document.getElementById("NumTarjeta").readOnly = false;
+  document.getElementById("CodSeguridad").readOnly = false;
+  document.getElementById("VenTarjeta").readOnly = false;
+  document.getElementById("NumCuenta").readOnly = true;
+
+  document.getElementById("formaDePago").innerText = "Tarjeta de credito";
+  formaDePago()
+})
+
+
+
+
+
