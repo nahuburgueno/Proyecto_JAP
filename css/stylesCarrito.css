@@ -1,0 +1,10 @@
+.contenedorPrincipalCarrito {
+
+   display: grid;
+   max-width:78%;
+   border-radius: 20px;
+   margin:0px auto;
+
+   border-style: solid;
+   border-color: grey;
+}

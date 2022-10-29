@@ -3,7 +3,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok"){
            carritoInfo = resultObj.data;
            mostrarInfoCart (carritoInfo);
-           agregarNewObj();
+           if (localStorage.getItem("nuevoObj")) {
+          agregarNewObj();
+        }
            precioCarrito();
          cantidad = document.getElementById("cantProduct")
         cantidad.addEventListener("click", function(e){
@@ -11,57 +13,65 @@ document.addEventListener("DOMContentLoaded", function(e){
         let currency = carritoInfo.articles[0].currency;
         let coste = document.getElementById("subTotal");
         coste.innerHTML = "<b>" + currency + " " + cantidad.value * valor + "</b>";
-   
         });
         }
-
     });
     });
    
+
     function mostrarInfoCart (carritoInfo){
     let precio = document.getElementById("costProduct");
     let imagen = document.getElementById("img");
     let name = document.getElementById("nombre");
     let total = document.getElementById("subTotal");
     let currency = carritoInfo.articles[0].currency;
-    let unitCost= carritoInfo.articles[0].unitCost;
+    let unitCost = carritoInfo.articles[0].unitCost;
 imagen.src = carritoInfo.articles[0].image;
 name.innerText = carritoInfo.articles[0].name;
 precio.innerText = currency + " " + unitCost;
 total.innerHTML = "<b>"+currency+" "+unitCost+"</b>";
    }
 
-// Agregar nuevo objeto al carrito
+// Agregar nuevo objeto al carrito 
 
 function agregarNewObj(){
     let productCart = "";
     let productInfo = JSON.parse(localStorage.getItem("nuevoObj"));
-    productCart += `
-    <div class="row">
-  
-    <img src="`+productInfo.images[0]+`" style="width: 90px; height: 40px;">
+    if (productInfo.id == carritoInfo.articles[0].id){
+        document.getElementById("cantProduct").value = 2;
+        document.getElementById("subTotal").innerHTML = "<b>" + carritoInfo.articles[0].currency + " " + carritoInfo.articles[0].unitCost*2 + "</b>"
+    }else {
+      productCart += `
+      <div class="row" id="divNuevoProducto">
     
-    <div class="col-md-1" style="width: 120px;" >
-    `+productInfo.name+`
-    </div>
-    
-    <div class="col-md-1">
-    `+productInfo.currency+ " " +productInfo.cost+ `
-    </div>
-    
-    <div class="col-md-1">
+      <img src="`+productInfo.images[0]+`" style="width: 90px; height: 40px;">
       
-      <input onclick="calcularValor()" type="number" class="form-control"  id="btnCantidad" value="1" min="1" style="width: 60px; height: 40px;">
+      <div class="col-md-1" style="width: 120px;" >
+      `+productInfo.name+`
+      </div>
       
+      <div class="col-md-1">
+      `+productInfo.currency+ " " +productInfo.cost+ `
+      </div>
+      
+      <div class="col-md-1">
+        
+        <input onclick="carritoCalculos()" type="number" class="form-control"  id="btnCantidad" value="1" min="1" style="width: 60px; height: 40px;">
+        
+      </div>
+      
+      <div class="col-md-1" id="precioTotal">
+    <b>  ` +productInfo.currency+ " " +productInfo.cost+ `</b>
+      </div>
+    <div class="col-md-1"> 
+      <button type="button" class="btn btn-outline-danger fa fa-trash" onclick="eliminarProducto ()"></button> 
     </div>
     
-    <div class="col-md-1" id="precioTotal">
-  <b>  ` +productInfo.currency+ " " +productInfo.cost+ `</b>
-    </div>
-  
-</div>
-    `
-    document.getElementById("articulosCarrito").innerHTML += productCart;
+  </div>
+      `
+      document.getElementById("articulosCarrito").innerHTML += productCart;
+    }
+    
 }
 function calcularValor() {
   let producto = JSON.parse(localStorage.getItem("nuevoObj"));
@@ -70,13 +80,24 @@ function calcularValor() {
   precioTotal.innerHTML = `<b>`+ producto.currency+" "+ producto.cost * cantidadArticulo+ `</b>`
 }
 
-/* Alerta */
+function eliminarProducto () {
+  localStorage.removeItem("nuevoObj");
+  document.getElementById("divNuevoProducto").innerHTML = "";
+  precioCarrito();
+}
+
+
+
+
+
+
+/* ALERTAS DE COMPRA FINALIZADA Y ALERTA DE ERROR */
 
 function showAlertSuccess() {
 
   Swal.fire({
-    title: "Informacion incorrecta",
-    text: "Compra completada con exito.",
+    title: "Gracias por su compra.",
+    text: "Compra realizada con exito.",
     icon: "success",
     backdrop: true,
     timer: 4000,
@@ -113,19 +134,29 @@ let inputAutoPreCargado = document.getElementById("cantProduct").value
 let premium = document.getElementById("flexRadioDefault1");
 let express = document.getElementById("flexRadioDefault2");
 let standar = document.getElementById("flexRadioDefault3");
-let cantidadProducto = document.getElementById("btnCantidad").value
-let precioProducto = producto.cost * cantidadProducto
-
-if(producto.currency === "UYU"){
- let productoEnDolares = producto.cost /= 42
- precioProducto = Math.trunc(productoEnDolares * cantidadProducto)
-console.log(precioProducto)
-}
 let precioAutoPreCargado = carritoInfo.articles[0].unitCost * inputAutoPreCargado
+let precio = "";
+if (producto) {
+if(producto.id !== carritoInfo.articles[0].id){
+  let cantidadProducto = document.getElementById("btnCantidad").value
+  let precioProducto = producto.cost * cantidadProducto
+if ( producto.currency === "UYU" ){
+    let productoEnDolares = producto.cost /= 42
+    precioProducto = Math.trunc( productoEnDolares * cantidadProducto)
+}
+precio = precioAutoPreCargado + precioProducto;
+}else {
+  precio = precioAutoPreCargado;
+}
+}else {
+  precio = precioAutoPreCargado;
+}
+
+
 let subtotalCarrito = document.getElementById("costoProdCarr");
 let costeEnvioCarr = document.getElementById("costeEnvioCarr");
-  let totalCarrito = document.getElementById("totalCosteCarr");
-precio = precioAutoPreCargado + precioProducto;
+let totalCarrito = document.getElementById("totalCosteCarr");
+
 
 
 if (premium.checked){
@@ -176,12 +207,11 @@ function formaDePago() {
 
 }
   checkboxTransferencia.addEventListener("click", function(e){
-checkboxTarjeta.cheked = false
+checkboxTarjeta.checked = false
     document.getElementById("NumTarjeta").readOnly = true;
     document.getElementById("CodSeguridad").readOnly = true;
     document.getElementById("VenTarjeta").readOnly = true;
     document.getElementById("NumCuenta").readOnly = false;
-
     document.getElementById("formaDePago").innerText = "Transferencia Bancaria";
     formaDePago()
   
@@ -189,12 +219,11 @@ checkboxTarjeta.cheked = false
 
 
 checkboxTarjeta.addEventListener("click", function(e){
-  checkboxTransferencia.cheked = false
+  checkboxTransferencia.checked = false
   document.getElementById("NumTarjeta").readOnly = false;
   document.getElementById("CodSeguridad").readOnly = false;
   document.getElementById("VenTarjeta").readOnly = false;
   document.getElementById("NumCuenta").readOnly = true;
-
   document.getElementById("formaDePago").innerText = "Tarjeta de credito";
   formaDePago()
 })
