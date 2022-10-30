@@ -73,6 +73,9 @@ function agregarNewObj(){
     }
     
 }
+
+
+// Multiplicacion de cantidad x precio
 function calcularValor() {
   let producto = JSON.parse(localStorage.getItem("nuevoObj"));
   let cantidadArticulo = document.getElementById("btnCantidad").value;
@@ -80,14 +83,12 @@ function calcularValor() {
   precioTotal.innerHTML = `<b>`+ producto.currency+" "+ producto.cost * cantidadArticulo+ `</b>`
 }
 
+// DESAFIATE ENTREGA 6
 function eliminarProducto () {
   localStorage.removeItem("nuevoObj");
   document.getElementById("divNuevoProducto").innerHTML = "";
   precioCarrito();
 }
-
-
-
 
 
 
@@ -126,9 +127,8 @@ function carritoCalculos() {
   precioCarrito()
 
 }
-
+// PASAR DE UYU A USD, Y HACER LA SUMA PARA MOSTRAR EN EL COSTO TOTAL
 function precioCarrito(){
-
 let producto = JSON.parse(localStorage.getItem("nuevoObj"));
 let inputAutoPreCargado = document.getElementById("cantProduct").value
 let premium = document.getElementById("flexRadioDefault1");
@@ -137,27 +137,26 @@ let standar = document.getElementById("flexRadioDefault3");
 let precioAutoPreCargado = carritoInfo.articles[0].unitCost * inputAutoPreCargado
 let precio = "";
 if (producto) {
-if(producto.id !== carritoInfo.articles[0].id){
-  let cantidadProducto = document.getElementById("btnCantidad").value
-  let precioProducto = producto.cost * cantidadProducto
-if ( producto.currency === "UYU" ){
-    let productoEnDolares = producto.cost /= 42
-    precioProducto = Math.trunc( productoEnDolares * cantidadProducto)
-}
-precio = precioAutoPreCargado + precioProducto;
-}else {
-  precio = precioAutoPreCargado;
-}
-}else {
-  precio = precioAutoPreCargado;
+  if(producto.id !== carritoInfo.articles[0].id){
+    let cantidadProducto = document.getElementById("btnCantidad").value
+    let precioProducto = producto.cost * cantidadProducto
+      if ( producto.currency === "UYU" ){
+        let productoEnDolares = producto.cost /= 42
+        precioProducto = Math.trunc( productoEnDolares * cantidadProducto)
+      }
+      precio = precioAutoPreCargado + precioProducto;
+        }else {
+          precio = precioAutoPreCargado;
+        }
+          }else {
+            precio = precioAutoPreCargado;
 }
 
+// AL SELECCIONAR UN TIPO DE ENVIO
 
 let subtotalCarrito = document.getElementById("costoProdCarr");
 let costeEnvioCarr = document.getElementById("costeEnvioCarr");
 let totalCarrito = document.getElementById("totalCosteCarr");
-
-
 
 if (premium.checked){
   envio = Math.trunc(precio * 0.15)
@@ -191,21 +190,22 @@ subtotalCarrito.innerHTML = subtotalCarritoMostrar;
 
 }
 
-
+// READ ONLY EN FORMA DE PAGO
 
 let checkboxTarjeta = document.getElementById("chBoxTarjeta");
 let checkboxTransferencia = document.getElementById("chBoxTransferencia");
  
 function formaDePago() { 
-  let divError = document.getElementById("textoError")
+  let error = document.getElementById("textoError")
   if (checkboxTransferencia.checked || checkboxTarjeta.checked){
-    divError.classList.add("d-none")
+    error.classList.add("d-none")
   }else{
-    divError.classList.remove("d-none")
-    divError.classList.add("text-danger")
+    error.classList.remove("d-none")
+    error.classList.add("text-danger")
   }
 
 }
+
   checkboxTransferencia.addEventListener("click", function(e){
 checkboxTarjeta.checked = false
     document.getElementById("NumTarjeta").readOnly = true;
