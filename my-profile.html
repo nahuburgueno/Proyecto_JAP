@@ -25,6 +25,7 @@
          }
       </style>
    </head>
+
    <body class="fondo">
       <nav class="nav-barColor navbar navbar-expand-lg  p-1">
          <div class="container">
@@ -63,7 +64,7 @@
          </div>
       </nav>
       <main>
-         
+         <form class="needs-validation" novalidate>
          <div class="contenedorPrincipalPerfil mt-3 p-2">
             <div class="contenedorSecundarioPerfil">
               <center>
@@ -76,17 +77,23 @@
             </div>
               
                <div class="m-1 form">
-                <p>Nombre:</p>
-                  <input type="text" class="form-control"  id="nombrePerfil"> 
+               <label for="">Nombre:</label>
+                  <input type="text" class="form-control" id="nombrePerfil" aria-describedby="inputGroupPrepend" required> 
+                  <div class="invalid-feedback">
+                     Debe ingresar un nombre.
+                   </div>
                </div>
                <div class="m-1 form">
                <p>Segundo nombre:</p>
                   <input type="text" class="form-control" id="sNombrePerfil" > 
                </div>
                <div class="m-1">
-                <p>Primer apellido:</p>
-                   <input type="text" class="form-control" id="pApellidoPerfil">
-               </div>
+                <label for="">Primer apellido:</label>
+                   <input type="text" class="form-control" id="pApellidoPerfil" aria-describedby="inputGroupPrepend" required>
+                   <div class="invalid-feedback">
+                     Debe ingresar un apellido.
+                   </div>
+                  </div>
                <div class="m-1">
                 <p>Segundo apellido:</p>
                    <input type="text" class="form-control" id="sApellidoPerfil"> 
@@ -101,10 +108,11 @@
                </div>
               
                <div class="m-1 p-2" >
-                  <button class="form-control" id="guardarCambiosPerfil" style=" background-color: #90E0C5; border-color: black; max-width: 200px; margin: 0 auto;" >Guardar cambios</button>
+                  <input class="form-control" type="submit" id="guardarCambiosPerfil" value="Guardar cambios" style=" background-color: #90E0C5; border-color: black; max-width: 200px; margin: 0 auto;" >
                </div>
             </div>
          </div>
+      </form>
       </main>
       <footer class="text-muted">
          <div class="container">
