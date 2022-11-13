@@ -58,19 +58,19 @@ function showCategoriesList() {
     
               htmlContentToAppend +=`
         <div onclick="guardarIdProducto(`+category.id+`)" class="list-group-item list-group-item-action cursor-active">
-        <div class="row">
+            <div class="row">
                 <div class="col-3">
                     <img src= "` + category.image + `" alt="product image" class="img-thumbnail">
                 </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <div class="mb-1">
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <div class="mb-1">
                         <h4>` +category.name + " - " + category.currency + " " + category.cost + `</h4> 
                         <p> ` + category.description +`</p> 
+                            </div>
+                        <small>`+ category.soldCount+` vendidos</small> 
                         </div>
-                        <small class="text-muted">`+ category.soldCount+` vendidos</small> 
                     </div>
-                </div>
             </div>
         </div>
         `

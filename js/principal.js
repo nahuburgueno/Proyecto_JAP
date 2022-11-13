@@ -15,3 +15,15 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
+
+
+/* Dark Mode */
+
+let darkToggle = document.querySelector('#darkToggle');
+darkToggle.addEventListener('change', ()=> {
+    document.body.classList.toggle('dark');
+});
+
+
+
+

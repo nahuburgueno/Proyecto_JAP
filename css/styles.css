@@ -257,6 +257,90 @@ a.custom-card:hover {
 .footer{
   color: black;
 }
+.contenedorPrincipalPerfil {
+
+  display: grid;
+  width:30%;
+ 
+  margin:0 auto;
+ 
+
+}
+
+.contenedorSecundarioPerfil {
+  padding: 7px;
+  margin: 0 auto;
+width: 280px;
+
+}
+.contenedorPrincipalCarrito {
+
+  display: grid;
+  max-width:60%;
+  border-radius: 20px;
+  margin:0px auto;
+  justify-content: center;
+
+}
 
 
 
+
+
+/* Dark Mode */
+
+ .dark .list-group > *{
+  background-color: #444!important;
+  color: white;
+ 
+
+}
+.dark .contenedorPrincipalCarrito {
+  background-color: #444!important;
+  color: white;
+}
+
+.dark .stroke {
+  -webkit-text-fill-color: #90E0C5;
+  -webkit-text-stroke: 0px black;
+}
+
+.dark  a {
+  color: white;
+}
+
+
+.darkToggle {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 5px;
+  border: 2px solid #555;
+}
+
+.darkToggle:checked {
+  background: #333;
+}
+
+.dark {
+  color: white;
+  background: #444;
+}
+
+.dark .formaDePago {
+color: white;
+}
+
+.dark .modal-content  > * {
+  background-color: #444;
+}
+ 
+
+.dark  #seccionComentarios > *{
+  background-color: #444;
+}
+
+.dark .card-body{
+  background-color: #444;
+}
