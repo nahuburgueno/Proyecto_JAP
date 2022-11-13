@@ -60,10 +60,10 @@ function agregarNewObj(){
         
       </div>
       
-      <div class="col-md-1" id="precioTotal">
+      <div class="col-md-2" id="precioTotal" style="margin-left: 1rem;" >
     <b>  ` +productInfo.currency+ " " +productInfo.cost+ `</b>
       </div>
-    <div class="col-md-1"> 
+    <div class="col-md-2"> 
       <button type="button" class="btn btn-outline-danger fa fa-trash" onclick="eliminarProducto ()"></button> 
     </div>
     

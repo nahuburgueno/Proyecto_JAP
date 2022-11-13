@@ -1,84 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Todo lo que busques está aquí</title>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="principal.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-            <li class="nav-item">
-              <div class="dropdown">
-                <label class="nav-link nav-bar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="nombreUsuario"></label>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-                  <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-                  <li><a class="dropdown-item" href="index.html" onclick="signOut();">Cerrar sesión</a></li>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>eMercado - Todo lo que busques está aquí</title>
+      <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/styles.css" rel="stylesheet">
+      <link rel="stylesheet" href="css/perfil.css">
+      <link rel="shortcut icon" href="img/IconoPrincipalico.ico" />
+      <style>
+         .bd-placeholder-img {
+         font-size: 1.125rem;
+         text-anchor: middle;
+         -webkit-user-select: none;
+         -moz-user-select: none;
+         -ms-user-select: none;
+         user-select: none;
+         }
+         @media (min-width: 768px) {
+         .bd-placeholder-img-lg {
+         font-size: 3.5rem;
+         }
+         }
+      </style>
+   </head>
+   <body class="fondo">
+      <nav class="nav-barColor navbar navbar-expand-lg  p-1">
+         <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav w-100 justify-content-between" style="margin-bottom: -10px;">
+         
+                  <li class="nav-item" style="margin-left: -100px; font-size: 20px;" >
+                  <a class=" textBlack nav-link strokeLetrasNavBar" href="principal.html"  style="margin-top: -6px; font-size: 1.5rem;">
+                    <img src="img/IconoPrincipal.png" alt="IconoPrincipal" style="width: 54px; margin-bottom: 10px; border-radius: 4px;" >  e-Mercado</a>
+                  </li>
                   
-                </ul>
-              </div>
-            </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
-        2022</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/my-profile.js"></script>
-  <script src="js/principal.js"></script>
-</body>
+                  <li class="nav-item">
+                     <a class="fontSizeNav-Bar textBlack nav-link strokeLetrasNavBar" href="principal.html">Inicio</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="fontSizeNav-Bar textBlack nav-link strokeLetrasNavBar" href="categories.html">Categorías</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="fontSizeNav-Bar textBlack nav-link strokeLetrasNavBar" href="sell.html">Vender</a>
+                  <li class="nav-item">
+                     <div class="dropdown">
+                        <label class="fontSizeNav-Bar textBlack nav-link nav-bar dropdown-toggle strokeLetrasNavBar" data-bs-toggle="dropdown" aria-expanded="false" id="nombreUsuario"></label>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                           <li><a class="fontSizeNav-Bar textBlack dropdown-item strokeLetrasNavBar" href="my-profile.html">Mi perfil</a></li>
+                           <li><a class="fontSizeNav-Bar textBlack dropdown-item strokeLetrasNavBar" href="cart.html">Mi carrito</a></li>
+                           <li><a class="fontSizeNav-Bar textBlack dropdown-item strokeLetrasNavBar" href="index.html" onclick="signOut();">Cerrar sesión</a></li>
+                        </ul>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <main>
+         
+         <div class="contenedorPrincipalPerfil mt-3 p-2">
+            <div class="contenedorSecundarioPerfil">
+              <center>
+                <h1  class="stroke fontSizeTitulos">Mi Perfil</h1>
+             </center>
 
+             <div class="m-1 form">
+             <img src="img/imagenpordefecto.png" id="imagenPerfil"  style="width: 7rem; border-radius: 8px; margin-left: 4rem; margin-bottom: 1rem;" alt="">
+               <input type="file" class="form-control" id="inputImagenPerfil" style="margin-bottom:1rem;">
+            </div>
+              
+               <div class="m-1 form">
+                <p>Nombre:</p>
+                  <input type="text" class="form-control"  id="nombrePerfil"> 
+               </div>
+               <div class="m-1 form">
+               <p>Segundo nombre:</p>
+                  <input type="text" class="form-control" id="sNombrePerfil" > 
+               </div>
+               <div class="m-1">
+                <p>Primer apellido:</p>
+                   <input type="text" class="form-control" id="pApellidoPerfil">
+               </div>
+               <div class="m-1">
+                <p>Segundo apellido:</p>
+                   <input type="text" class="form-control" id="sApellidoPerfil"> 
+               </div>
+               <div class="m-1">
+                <p>E-mail:</p>
+                   <input type="email" required class="form-control" id="emailPerfil"> 
+               </div>
+               <div class="m-1">
+                <p>Teléfono de contacto:</p>
+                   <input type="tel" maxlength="9" class="form-control" id="telefonoPerfil"> 
+               </div>
+              
+               <div class="m-1 p-2" >
+                  <button class="form-control" id="guardarCambiosPerfil" style=" background-color: #90E0C5; border-color: black; max-width: 200px; margin: 0 auto;" >Guardar cambios</button>
+               </div>
+            </div>
+         </div>
+      </main>
+      <footer class="text-muted">
+         <div class="container">
+            <p class="float-end">
+               <a href="#"><ion-icon name="arrow-up-outline" size="large" class="iconStyle"></ion-icon></a>
+            </p>
+            <p class="footer">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank" class="footerSecundario">Jovenes a Programar</a> -
+               2022
+            </p>
+            <p class="footer">Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+         </div>
+      </footer>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/init.js"></script>
+      <script src="js/my-profile.js"></script>
+      <script src="js/principal.js"></script>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+   </body>
 </html>

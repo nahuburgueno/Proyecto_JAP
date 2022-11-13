@@ -170,7 +170,7 @@ switch(comentariosProd[comment].score){
 // Productos relacionados, entrega 4
 for (let productsRelated of productInfo.relatedProducts){
         productsRelativos+=`
-        <div onclick="guardarIdProducto(`+productsRelated.id+`)" class="row" style="display:inline-block;">
+        <div onclick="guardarIdProducto(`+productsRelated.id+`)" class="row"  style="display:inline-block;">
             <div  class="col-md-2">
                 <div class="card text-left m-4" style="width:260px; cursor:pointer;">
                     <img src="`+productsRelated.image+`" class="card-img-top">

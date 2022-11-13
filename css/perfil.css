@@ -1,0 +1,23 @@
+.contenedorPrincipalPerfil {
+
+    display: grid;
+    width:30%;
+   
+    margin:0 auto;
+    
+    border-radius: 1rem;
+    border-color: grey;
+   border-style: solid;
+
+ }
+
+ .contenedorSecundarioPerfil {
+    padding: 7px;
+    margin: 0 auto;
+width: 280px;
+
+ }
+
+
+
+

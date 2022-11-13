@@ -9,35 +9,43 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="shortcut icon" href="img/IconoPrincipalico.ico" />
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+  <nav class="nav-barColor navbar navbar-expand-lg  p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
+        <ul class="navbar-nav w-100 justify-content-between" style="margin-bottom: -10px;">
+         
+          <li class="nav-item" style="margin-left: -100px; font-size: 20px;" >
+          <a class=" textBlack nav-link strokeLetrasNavBar" href="principal.html"  style="margin-top: -6px; font-size: 1.5rem;">
+            <img src="img/IconoPrincipal.png" alt="IconoPrincipal" style="width: 54px; margin-bottom: 10px; border-radius: 4px;" >  e-Mercado</a>
+          </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href="principal.html">Inicio</a>
+             <a class="fontSizeNav-Bar textBlack nav-link strokeLetrasNavBar" href="principal.html">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
+             <a class="fontSizeNav-Bar textBlack nav-link strokeLetrasNavBar" href="categories.html">Categorías</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="sell.html">Vender</a>
-          </li>
+             <a class="fontSizeNav-Bar textBlack nav-link strokeLetrasNavBar" href="sell.html">Vender</a>
           <li class="nav-item">
-            <div class="dropdown">
-              <label class="nav-link nav-bar dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" id="nombreUsuario"></label>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-                <li><a class="dropdown-item" href="index.html" onclick="signOut();">Cerrar sesión</a></li>
-                
-              </ul>
+             <div class="dropdown">
+                <label class="fontSizeNav-Bar textBlack nav-link nav-bar dropdown-toggle strokeLetrasNavBar" data-bs-toggle="dropdown" aria-expanded="false" id="nombreUsuario"></label>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                   <li><a class="fontSizeNav-Bar textBlack dropdown-item strokeLetrasNavBar" href="my-profile.html">Mi perfil</a></li>
+                   <li><a class="fontSizeNav-Bar textBlack dropdown-item strokeLetrasNavBar" href="cart.html">Mi carrito</a></li>
+                   <li><a class="fontSizeNav-Bar textBlack dropdown-item strokeLetrasNavBar" href="index.html" onclick="signOut();">Cerrar sesión</a></li>
+                </ul>
+             </div>
+          </li>
+       </ul>
             </div>
           </li>
         </ul>
@@ -46,7 +54,7 @@
   </nav>
   <div class="container">
     <div class="text-center p-4">
-      <h2>Vender</h2>
+      <h2 class="stroke fontSizeTitulos">Vender</h2>
       <p class="lead">Ingresa los datos del artículo a vender.</p>
     </div>
     <div class="row justify-content-md-center">
@@ -179,12 +187,13 @@
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
-        <a href="#">Volver arriba</a>
+         <a href="#"><ion-icon name="arrow-up-outline" size="large" class="iconStyle"></ion-icon></a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
-        2022</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
+      <p class="footer">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank" class="footerSecundario">Jovenes a Programar</a> -
+         2022
+      </p>
+      <p class="footer">Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+   </div>
   </footer>
 
   <div class="alert alert-primary-dismissible fade" id="alertResult" role="alert">
@@ -237,6 +246,8 @@
   <script src="js/init.js"></script>
   <script src="js/sell.js"></script>
   <script src="js/principal.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

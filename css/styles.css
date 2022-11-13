@@ -188,18 +188,7 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
-/* .fondo {
-  background-color: #B8C6DB !important; 
-}
-.nav-bar {
-  color: black !important; 
-  border-bottom: 1px solid black;
-  
-}
-.nav-bar:hover {
-  color: blueviolet !important;
-  border-bottom: 1px solid blueviolet;
-} */
+
 .rating a {
   float: right;
   color: #aaa;
@@ -226,5 +215,48 @@ a.custom-card:hover {
   color: orange;
   cursor: pointer;
 }
+
+
+.stroke {
+  -webkit-text-fill-color: #90E0C5;
+  -webkit-text-stroke: 1px black;
+  }
+
+
+  .fontSizeTitulos {
+    font-size: 3.5rem!important;
+    color: #90E0C5;
+  }
+  
+  .fontSizeNav-Bar {
+    font-size:1.1rem!important;
+    
+  }
+
+
+.nav-barColor {
+  background-color: #90E0C5;
+  border-color: black;
+  
+}
+
+.textBlack {
+  color: black!important;
+}
+
+
+.iconStyle {
+  color: #90E0C5;
+  
+}
+.fontSizeTitulosSecundarios{
+  font-size: 1.9rem;
+  color: #90E0C5;
+}
+
+.footer{
+  color: black;
+}
+
 
 
