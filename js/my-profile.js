@@ -7,6 +7,7 @@ let segundoApellido = document.getElementById("sApellidoPerfil");
 let emailPerfil = document.getElementById("emailPerfil");
 let telefonoPerfil = document.getElementById("telefonoPerfil");
 
+/* Desafiate 7 */
 inputImagenPerfil.addEventListener("change", (event) => {
     url = URL.createObjectURL(event.target.files[0]);
     imagenPerfil.src = url
